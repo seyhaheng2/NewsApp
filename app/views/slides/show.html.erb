@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @slide.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @slide.image %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @slide.video %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @slide.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @slide.user %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @slide.category %>
+</p>
+
+<p>
+  <strong>Countclick:</strong>
+  <%= @slide.countclick %>
+</p>
+
+<%= link_to 'Edit', edit_slide_path(@slide) %> |
+<%= link_to 'Back', slides_path %>

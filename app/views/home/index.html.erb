@@ -1,0 +1,87 @@
+   <!-- #main-header -->
+      <div id="main-content" class="site-main boxed group">
+         <div id="primary" class="content-area boxed">
+            <div class="block-wrapper">
+               <%= render 'slide' %>
+               <div id="recent_posts_plus62-2" class="widget widget-wrap widget_posts_wrap">
+                  <h3 class="widget-title"><span>Recent posts</span></h3>
+                  <div class="site-content group posts-block two-columns sort-date">
+                   <%= render 'post'%>
+                     <nav class="page-navigation">
+                          <i class="fa fa-circle-o-notch"></i>
+                           <div id="infinite-scrolling">
+                              <%= will_paginate @posts %>
+                           </div>
+                     </nav>
+                  </div>
+               </div>
+               <div id="recent_posts_plus62-3" class="widget widget-wrap widget_posts_wrap">
+                 <h3 class="widget-title"><span>
+               Breaking News
+               </span></h3>
+                  <div class="site-content block group posts-block three-columns sort-date">
+                  <% @news.each do |news| %>
+                     <article class="post-153 post type-post status-publish format-video has-post-thumbnail hentry category-environment tag-fall tag-featured tag-film tag-forest boxed group">
+
+    
+                              <%= link_to post_path(id: news.id), class: "home-thumb boxed" do %>
+                              <%= image_tag news.image, class: "attachment-thumb-450 wp-post-image",size: "450x253" %>
+                              <% end %>
+                        <div class="post-detail">
+                           <h4 class="entry-title">
+                              <%= link_to post_path(id: news.id) do %>
+                                    <%= truncate(news.name, length: 40) %>
+                              <% end %>
+                           </h4>
+                           <div class="meta">
+                              <span class="date"><time class="entry-date" datetime="2013-02-16T09:53:00+00:00">
+                                     <% if news.created_at > Time.now.beginning_of_day %>
+                                             <%="#{time_ago_in_words(news.created_at)} ago"%> 
+                                          <% else %> 
+                                             <%= news.created_at.strftime("%b %d, %Y") %>
+                                          <% end %>
+                              </time></span>							
+                           </div>
+                        </div>
+                     </article>
+                     <% end %>
+                  </div>
+               </div>
+
+               <div id="gallery_plus62-3" class="widget widget-wrap widget_gallery">
+                  <h3 class="widget-title"><span>Recent Technology</span></h3>
+                  <div class="site-content fan group posts-block two-columns gallery-view sort-date">
+                     <% @tech.each do |tech| %>
+                     <article id="post-392" class="post-392 post type-post status-publish format-gallery has-post-thumbnail hentry category-lifestyle tag-color tag-creativity tag-cute tag-sculpture boxed group">
+                           <%= link_to post_path(id: tech.id), class: "home-thumb boxed" do %>
+                           <%= image_tag tech.image, class: "attachment-thumb-450 wp-post-image",size: "450x253"  %>
+                           <% end %>
+                        <div class="post-detail">
+                           <h4 class="entry-title">
+
+                              <%= link_to tech.name, post_path(id: tech.id) %>
+                           </h4>
+                           <div class="meta">
+                              <%= link_to post_path(id: tech.id) do %>
+                                 <span>  <% if tech.created_at > Time.now.beginning_of_day %>
+                                             <%="#{time_ago_in_words(tech.created_at)} ago"%> 
+                                          <% else %> 
+                                             <%= tech.created_at.strftime("%b %d, %Y") %>
+                                          <% end %></span>
+                              <% end %>
+                           </div>
+                        </div>
+                     </article>
+                     <% end %>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- #secondary .widget-area -->
+         <div id="site-footer" class="boxed">
+            &copy; Created by Sino is powered by <a href="#" title="WordPress">Ruby on Rails</a>.
+         </div>
+      </div>
+      <!-- #main-content .site-main -->
+

@@ -1,0 +1,41 @@
+	<% @posts.each do |post| %>
+                     <article id="my-posts" class="post-139 post type-post status-publish format-video has-post-thumbnail hentry category-music tag-campaign tag-film tag-jude-law tag-radiohead boxed group">
+                           <% if post.video.present? %>
+                              <div class="cont">
+                                 <%= post.video.html_safe  %>
+                              </div>
+                           <% else %>
+                        	  <%= link_to post_path(id: post.id), class: "home-thumb boxed" do %>
+                        	     <%= image_tag post.image, class: "attachment-thumb-450 wp-post-image",size: "450x253" %>
+                        		<% end %>
+                           <% end %>
+                           <div class="post-detail">
+                                 <div class="category-meta">
+                                    <ul class="post-categories">
+                                       <li style="padding-left:4px;padding-top:5px;padding-bottom:6px;" id=<%= "tag#{post.category_id}" -%>><%= link_to post.category.name %></li>
+                                    </ul>
+                                 </div>
+                                 <h3 class="entry-title">
+                                   <%= link_to truncate(post.name, length: 50), post_path(id: post.id), class: "icon-video" %>
+                                 </h3>
+                                 <div class="content">
+                                 	 <%= truncate( raw( sanitize(post.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 80, :omission => "...") %>
+                                 </div>
+                                 <br>
+                                 <div class="meta">
+                                    <span class="fa fa-clock-o">
+                                       <time class="entry-date" datetime="2013-02-10T09:20:51+00:00"> 
+                                          <% if post.created_at > Time.now.beginning_of_day %>
+                                             <%="#{time_ago_in_words(post.created_at)} ago"%> 
+                                          <% else %> 
+                                             <%= post.created_at.strftime("%b %d, %Y") %>
+                                          <% end %>
+                                       </time>
+                                    </span>	
+                                    <div class="pull-right">
+                                    	<span class="fa fa-eye"> <%= post.countclick %></span>
+                                    </div>						
+                                 </div>
+                              </div>
+                     </article>
+                     <% end %>

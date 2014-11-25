@@ -1,0 +1,106 @@
+         <div id="secondary" class="widget-area boxed" role="complementary">
+            <div>
+               <div id="main-search" class="boxed">
+                  <form method="get" id="searchform" action="http://theme.plus62.co/hope/" role="search">
+                     <input type="text" class="field" name="s" value="" id="s" placeholder="Search" />
+                     <input type="submit" class="submit" name="submit" id="searchsubmit" value="Go!" />
+                  </form>
+               </div>
+               <aside id="tabs_mflux-2" class="widget widget-wrap boxed tabs-widget">
+                  <div class="tabs">
+                     <ul class="nav-tab group">
+                        <li class="first_tab tab-active boxed">
+                           <%= link_to do %>
+                           	<div class="fa fa-heart fa-2x" style="display:block;"></div>
+                              			Advertising	
+                           <% end %>
+                        </li>
+                        <li class="second_tab boxed">
+                           <%= link_to do %>
+                           	<div class="fa fa-clock-o fa-2x" style="display:block;"></div>
+                              Mosted Views				
+                           <% end %>
+                        </li>
+                     </ul>
+                     <div class="tab-content tabs-1 active clearfix">
+                        <div id="tabs_mflux-2-popular" class="widget-wrap">
+                           <div class="site-content group posts-block sidebar-posts sort-comment_count">
+  
+                              <nav class="page-navigation load-more">
+                                 <a href="index-posts_widget_page=2.html" class="icon-refresh">
+                                    <svg viewBox="0 0 128 128">
+                                       <use xlink:href="http://theme.plus62.co/hope/assets/svg/icon-stack.svg#icon-refresh-svg" />
+                                    </svg>
+                                    Load More
+                                 </a>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="tab-content tabs-2 hide">
+                        <div id="tabs_mflux-2-recent" class="widget-wrap">
+                           <div class="site-content group posts-block sidebar-posts sort-date">
+                                                  <% @featured_posts.each do |post| %>    
+                              <article class="post-153 post type-post status-publish format-video has-post-thumbnail hentry category-environment tag-fall tag-featured tag-film tag-forest boxed group">
+                              <%= link_to"", class: "home-thumb boxed" do %>
+                                 <%= image_tag post.image, class: "attachment-thumb-450 wp-post-image" %>
+                              <% end %>
+                                 <div class="post-detail">
+                                    <h5 class="entry-title">
+                                       <%= link_to post_path(id: post.id) do %>
+                                         <%= truncate(post.name, length: 40)%>
+                                       <% end %>
+                                    </h5>
+                                    <div class="meta">
+                                       <span class="fa fa-clock-o"><time class="entry-date" datetime="2013-02-16T09:53:00+00:00"> 
+                                          <% if post.created_at > Time.now.beginning_of_day %>
+                                             <%="#{time_ago_in_words(post.created_at)} ago"%> 
+                                          <% else %> 
+                                             <%= post.created_at.strftime("%b %d, %Y") %>
+                                          <% end %></time></span>                   
+                                    </div>
+                                 </div>
+                              </article>
+                           <% end %>
+                              <nav class="page-navigation load-more">
+                                 <a href="index-posts_widget_page=2.html" class="icon-refresh">
+                                    <svg viewBox="0 0 128 128">
+                                       <use xlink:href="http://theme.plus62.co/hope/assets/svg/icon-stack.svg#icon-refresh-svg" />
+                                    </svg>
+                                    Load More
+                                 </a>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </aside>
+<!--                <aside id="categories-2" class="widget widget-wrap boxed widget_categories">
+                  <h5 class="widget-title"><span>Categories</span></h5>
+                  <ul>
+                     <li class="cat-item cat-item-2"><a href="category/environment/index.html" >Environment</a></li>
+                     <li class="cat-item cat-item-3"><a href="category/headlines/index.html" >Headlines</a></li>
+                     <li class="cat-item cat-item-4"><a href="category/lifestyle/index.html" >Lifestyle</a></li>
+                     <li class="cat-item cat-item-5"><a href="category/music/index.html" >Music</a></li>
+                     <li class="cat-item cat-item-6"><a href="category/technology/index.html" >Technology</a></li>
+                  </ul>
+               </aside>
+               <aside id="archives-2" class="widget widget-wrap boxed widget_archive">
+                  <h5 class="widget-title"><span>Archives</span></h5>
+                  <ul>
+                     <li><a href='2013/02/index.html'>February 2013</a></li>
+                     <li><a href='2013/01/index.html'>January 2013</a></li>
+                     <li><a href='2012/12/index.html'>December 2012</a></li>
+                  </ul>
+               </aside>
+               <aside id="meta-2" class="widget widget-wrap boxed widget_meta">
+                  <h5 class="widget-title"><span>Meta</span></h5>
+                  <ul>
+                     <li><a href="wp-login.php.html">Log in</a></li>
+                     <li><a href="feed/index.html">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                     <li><a href="comments/feed/index.html">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                     <li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
+                  </ul>
+               </aside> -->
+            </div>
+         </div>

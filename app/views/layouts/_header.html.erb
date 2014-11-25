@@ -1,0 +1,52 @@
+	    <header id="main-header" class="sticky-nav boxed">
+         <div class="logo">
+            <h1 class="no-heading-style">
+            <%= link_to root_path do %>
+            <%= image_tag "logo.png" %>
+            <% end %>
+            </h1>
+         </div>
+         <a href="#menu" id="show-menu-button" class="icon-menu">
+          <i class="fa fa-navicon (alias)"></i>
+            <span class="hide-text">Menu</span>
+         </a>
+         <a href="#search" id="show-search-button" class="icon-search">
+            <i class=" fa fa-search"></i>
+            <span class="hide-text">Search</span>
+         </a>
+         <a href="#secondary" id="show-sidebar-button" class="boxed">
+         <span>Tap</span>
+         </a> 
+         <nav id="main-navigation" role="navigation" class="site-navigation group wrapper boxed">
+            <div class="menu-category-menu-container">
+               <ul id="primary-menu" class="menu group">
+                  <li id="menu-item-340" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-340"><a href="category/technology/index.html">Technology</a></li>
+
+                  <li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-174">
+                     <a href="#">Dropdowns</a>
+                     <ul class="sub-menu">
+                        <li id="menu-item-335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-335"><a href="#">Buy This!</a></li>
+                        <li id="menu-item-336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-336">
+                           <a href="#">Other Themes</a>
+                           <ul class="sub-menu">
+                              <li id="menu-item-341" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a href="http://theme.plus62.me/upright/">Upright</a></li>
+                              <li id="menu-item-338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-338"><a href="http://theme.plus62.me/popster/">Popster</a></li>
+                              <li id="menu-item-337" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-337"><a href="http://theme.plus62.me/lightly/">Lightly</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="menu-secondary-menu-container">
+               <ul id="menu-secondary-menu" class="secondary-menu group">
+                  <li id="menu-item-118" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-118"><a href="index.html"><span>Home</span></a></li>
+                  <%# @category.each do |cate| %>
+                     <li id="menu-item-118" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-118"><%#= link_to cate.name %></li>
+                  <%#end %>
+               </ul>
+            </div>
+         </nav>
+         <!-- .site-navigation .main-navigation -->
+      	</header>

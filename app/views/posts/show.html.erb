@@ -1,0 +1,108 @@
+<div id="main-content" class="site-main boxed group">
+   <div id="primary" class="content-area boxed">
+      <div class="site-content" role="main">
+         <article class="post-143 post type-post status-publish format-video has-post-thumbnail hentry category-music tag-airwaves tag-creativity tag-featured tag-food tag-teardrop tag-vegetable main-single-post boxed group">
+            <header>
+               <h3 class="entry-title">
+                  <%= @post.name %>           
+               </h3>
+            </header>
+            <div class="post-detail">
+                   <%= social_share_button_tag(@post.name, :popup => "true") %>
+                <p class="meta pull-right">
+           <span class="fa fa-clock-o">
+                   <time class="entry-date" datetime="2013-02-18T09:33:22+00:00">  
+                       <% if @post.created_at > Time.now.beginning_of_day %>
+                               <%="#{time_ago_in_words(@post.created_at)} ago"%> 
+                            <% else %> 
+                               <%= @post.created_at.strftime("%b %d, %Y") %>
+                            <% end %>
+                   </time>
+                </span>
+                  <span> &nbsp; &ndash; &nbsp; </span>
+                  <span class="fa fa-user">
+                     <a href="../../../../author/anggun/index.html" title="Posts by Anggun Pribadi" rel="author">Anggun Pribadi</a>
+                  </span>
+                  <span> &nbsp; &ndash; &nbsp; </span>
+                  <span class="fa fa-eye">
+                     <%= @post.countclick %>
+                  </span>
+               </p>
+               <div class="entry-content">
+               <%= image_tag @post.image %>
+               <br>
+               <%= @post.description %>
+              </div>
+               
+            <footer>
+               <div class="author-box boxed">
+               </div>
+               <nav class="post-nav group">
+                  <div class="prev-post boxed">
+                     <div class="meta">
+                     <%= link_to "Previous Post", @post.previous if @post.previous.present? %>
+                     </div>
+                     <h4 class="entry-title h3">
+                     <%= link_to truncate("#{@post.previous.name}", length: 40), @post.previous if @post.previous.present? %>
+                     </h4>
+                  </div>
+                  <div class="next-post boxed">
+                     <div class="meta"><%= link_to "Next Post", @post.next if @post.next.present? %></div>
+                     <h4 class="entry-title h3">
+                     <%= link_to truncate("#{@post.next.name}", length: 40), @post.next if @post.next.present? %>
+                     </h4>
+                  </div>
+               </nav>
+            </footer>
+
+         </article>
+         <h3 class="widget-title">Related Posts</h3>
+         <div class="site-content related group posts-block three-columns">
+         <% @related.each do |related| %>
+            <article class="post-253 post type-post status-publish format-standard has-post-thumbnail hentry category-lifestyle tag-food tag-health tag-noodle boxed group">
+               <%= link_to post_path(id: related.id),class: "home-thumb boxed" do %>
+                  <%= image_tag related.image, class: "attachment-thumb-450 wp-post-image" %>
+               <% end %>
+               <div class="post-detail">
+                  <h4 class="entry-title">
+                    <%= link_to post_path(id: related.id) do %>
+                                    <%= truncate(related.name, length: 40) %>
+                              <% end %>
+                  </h4>
+                  <div class="meta">
+                     <span class="date"><time class="entry-date" datetime="2013-02-24T07:32:32+00:00"> 
+                          <% if related.created_at > Time.now.beginning_of_day %>
+                               <%="#{time_ago_in_words(related.created_at)} ago"%> 
+                            <% else %> 
+                               <%= related.created_at.strftime("%b %d, %Y") %>
+                            <% end %></time></span>             
+                  </div>
+               </div>
+            </article>
+          <% end %>
+         </div>
+
+
+                         <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tvermech'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+   <!-- #primary .content-area -->
+</div>
+<!-- #main-content .site-main -->
+</div><!-- #page .hfeed .site -->
+      </div>
+   </div>
+
+
+
+

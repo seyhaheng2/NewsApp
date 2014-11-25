@@ -1,0 +1,56 @@
+
+		<div id="post_slider_plus62-4" class="widget widget-wrap widget_posts_wrap">				
+<div class="slider-view flexslider posts-block">
+	<div class="slides group">	
+	<% @slides.each do |slide| %>
+			<article class="post-112 post type-post status-publish format-standard has-post-thumbnail hentry category-lifestyle tag-delicious tag-featured tag-food tag-japan tag-money boxed group">
+				<header>
+				       <%= link_to post_path(id: slide.id),class: "home-thumb boxed" do %>
+	                        <%= image_tag slide.image, class: "attachment-large wp-post-image",size: "728x409" %>
+						<% end %>
+						<div class="slide-title-wrap">
+							<div class="category-meta">
+								<ul class="post-categories">
+								<li style="padding-left:4px;padding-top:5px;padding-bottom:6px;" id=<%= "tag#{slide.category_id}" -%>><%= link_to slide.category.name %></li></ul>
+							</div>
+							<h2 class="entry-title">
+								<%= link_to slide.name, post_path(id: slide.id) %>
+							</h2>
+						</div>
+				</header>
+				<div class="post-detail">
+					<p class="meta">
+						<span class="icon-time">
+						<i class="fa fa-clock-o"></i>
+						<a href="2013/01/18/hey-its-perfect-for-all-you-carnivores-and-omnivores/index.html" title="Permalink to Japan Culinary: This is Perfect for All of You Carnivores &amp; Omnivores!" rel="bookmark">
+						<time class="entry-date" datetime="2013-01-18T03:17:07+00:00">         
+							  <% if slide.created_at > Time.now.beginning_of_day %>
+                                 <%="#{time_ago_in_words(slide.created_at)} ago"%> 
+                              <% else %> 
+                                 <%= slide.created_at.strftime("%b %d, %Y") %>
+                              <% end %>
+                        </time></a>
+						</span> 
+						<span> &nbsp; &ndash; &nbsp; </span>
+						<span class="icon-author">
+						<i class="fa fa-user"></i>
+						<a href="author/anggun/index.html" title="Posts by Anggun Pribadi" rel="author">Anggun Pribadi</a></span> <span> &nbsp; &ndash; &nbsp; </span>
+						<span class="icon-comment">
+						<i class="fa fa-eye"></i>
+						<%= slide.countclick  %></span>
+					</p>
+					<p class="entry-content"><%= truncate(slide.description, length: 200) %></p>
+				</div>
+			</article>
+			<% end %>
+	</div>
+</div> <!--End of slider-->
+
+<script>
+	jQuery(document).ready(function($){
+		slideWidth = (($('#post_slider_plus62-4').width() )/3)  ;
+		$('#post_slider_plus62-4 .flexslider').flexslider({ selector: ".slides > article", controlNav : false   , slideshowSpeed:10000, animationSpeed:600, prevText: '<span class="fa fa-chevron-left" style="verticle-align:middle;"><span class="hide-text">Previous</span></span>', nextText: '<span class="fa fa-chevron-right" style="verticle-align:middle;"><span class="hide-text">Next</span></span>' });
+	});
+</script>
+
+</div>
